@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <context-param>
+        <param-name>fontSize</param-name>
+        <param-value>40</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>localTime</servlet-name>
+        <servlet-class>org.example.LocalTime</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>localTime</servlet-name>
+        <url-pattern>/time</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>TimezoneValidateFilter</filter-name>
+        <filter-class>org.example.TimezoneValidateFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>TimezoneValidateFilter</filter-name>
+        <url-pattern>/time</url-pattern>
+    </filter-mapping>
+
+</web-app>
